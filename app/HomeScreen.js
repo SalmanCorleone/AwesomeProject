@@ -156,13 +156,13 @@ const styles = StyleSheet.create({
 });
 
 //
-export default createContainer(() => {
-  Meteor.subscribe('first.fetcch', 1);
-  return {
-    items: Meteor.collection('first.fetcch').find(),
-    count: Meteor.collection('first.fetcch').find().length,
-  };
-}, HomeScreen);
+// export default createContainer(() => {
+//   Meteor.subscribe('first.fetcch', 1);
+//   return {
+//     items: Meteor.collection('first.fetcch').find(),
+//     count: Meteor.collection('first.fetcch').find().length,
+//   };
+// }, HomeScreen);
 
 // export default createContainer(() => {
 //   Meteor.subscribe('tasks');
@@ -173,4 +173,4 @@ export default createContainer(() => {
 // }, HomeScreen);
 
 
-//export default HomeScreen;
+export default HomeScreen;

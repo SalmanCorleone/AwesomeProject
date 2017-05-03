@@ -1,21 +1,5 @@
 import React, {Component} from 'react';
-import {
-  Badge,
-  Container,
-  Header,
-  Title,
-  Content,
-  Footer,
-  FooterTab,
-  Button,
-  Left,
-  Right,
-  Body,
-  Icon,
-  Thumbnail,
-  List,
-  ListItem
-} from 'native-base';
+
 import {AppRegistry, StyleSheet, ListView, Text, View} from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import Meteor, { createContainer } from 'react-native-meteor';
