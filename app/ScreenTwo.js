@@ -24,6 +24,9 @@ var items = ['মহামান্য রাষ্ট্রপতি', 'রা�
 
 
 const SERVER_URL = 'ws://192.168.0.101:3000/websocket';
+const SERVER_URL2= 'http://107.23.254.57:81';
+
+
 
 class ScreenTwo extends React.Component {
   componentWillMount() {

@@ -21,6 +21,8 @@ import {StackNavigator} from 'react-navigation';
 import Meteor, {createContainer, MeteorListView} from 'react-native-meteor';
 
 const SERVER_URL = 'ws://192.168.0.101:3000/websocket';
+const SERVER_URL2= 'ws://107.23.254.57:81/websocket';
+
 
 var items = ['রাষ্ট্রপতির সচিবালয়', 'প্রধানমন্ত্রীর কার্যালয়', 'শিক্ষা মন্ত্রণালয়'];
 
@@ -29,7 +31,7 @@ var items = ['রাষ্ট্রপতির সচিবালয়', 'প্�
 class HomeScreen extends Component {
 
   componentWillMount() {
-    Meteor.connect(SERVER_URL);
+    Meteor.connect(SERVER_URL2);
   }
   static navigationOptions = {
     title: 'প্রথম অধ্যায়',
@@ -154,12 +156,21 @@ const styles = StyleSheet.create({
 });
 
 //
+export default createContainer(() => {
+  Meteor.subscribe('first.fetcch', 1);
+  return {
+    items: Meteor.collection('first.fetcch').find(),
+    count: Meteor.collection('first.fetcch').find().length,
+  };
+}, HomeScreen);
+
 // export default createContainer(() => {
-//   Meteor.subscribe('first.fetcch', 1);
+//   Meteor.subscribe('tasks');
 //   return {
-//     items: Meteor.collection('first.fetcch').find(),
-//     count: Meteor.collection('first.fetcch').find().length,
+//     items: Meteor.collection('tasks').find(),
+//     count: Meteor.collection('tasks').find().length,
 //   };
 // }, HomeScreen);
 
-export default HomeScreen;
+
+//export default HomeScreen;
