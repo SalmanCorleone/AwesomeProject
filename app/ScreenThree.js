@@ -168,4 +168,12 @@ const styles = StyleSheet.create({
 //   };
 // }, ScreenThree);
 
+// export default createContainer(() => {
+//   Meteor.subscribe('tasks');
+//   return {
+//     items: Meteor.collection('tasks').find(),
+//     count: Meteor.collection('tasks').find().length,
+//   };
+// }, ScreenThree);
+
 export default ScreenThree;

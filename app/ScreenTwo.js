@@ -144,5 +144,13 @@ const styles = StyleSheet.create({
 //   };
 // }, ScreenTwo);
 
+// export default createContainer(() => {
+//   Meteor.subscribe('tasks');
+//   return {
+//     items: Meteor.collection('tasks').find(),
+//     count: Meteor.collection('tasks').find().length,
+//   };
+// }, ScreenTwo);
+
 
 export default ScreenTwo;
