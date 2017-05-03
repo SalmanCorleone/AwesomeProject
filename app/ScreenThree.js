@@ -46,7 +46,7 @@ class ScreenThree extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title>{params.name}</Title>
+            <Text style={styles.title}>{params.name}</Text>
           </Body>
 
           <Right></Right>
@@ -104,6 +104,12 @@ class ScreenThree extends React.Component {
 
 
 const styles = StyleSheet.create({
+
+  title:  {
+    fontSize:15,
+    color: 'white'
+  },
+
 
   sub: {
     paddingLeft: 5
