@@ -46,7 +46,7 @@ class ScreenTwo extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title>{params.name}</Title>
+            <Text style={styles.title}>{params.name}</Text>
           </Body>
 
           <Right>
@@ -79,6 +79,11 @@ class ScreenTwo extends React.Component {
 
 
 const styles = StyleSheet.create({
+
+  title:  {
+    fontSize:15,
+    color: 'white'
+  },
 
   sub: {
     paddingLeft: 5
@@ -116,7 +121,8 @@ const styles = StyleSheet.create({
     height: 70,
     flexDirection: 'row',
     paddingLeft: 0,
-    paddingRight: 0
+    paddingRight: 0,
+
   },
   foot: {
     color: 'white'
