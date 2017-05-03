@@ -149,10 +149,10 @@ const styles = StyleSheet.create({
 
 //
 // export default createContainer(() => {
-//   Meteor.subscribe('tasks');
+//   Meteor.subscribe('first.fetcch', 1);
 //   return {
-//     items: Meteor.collection('tasks').find(),
-//     count: Meteor.collection('tasks').find().length,
+//     items: Meteor.collection('first.fetcch').find(),
+//     count: Meteor.collection('first.fetcch').find().length,
 //   };
 // }, HomeScreen);
 

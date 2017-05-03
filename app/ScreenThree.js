@@ -153,12 +153,12 @@ const styles = StyleSheet.create({
 });
 
 
-export default createContainer(() => {
-  Meteor.subscribe('tasks');
-  return {
-    items: Meteor.collection('tasks').find(),
-    count: Meteor.collection('tasks').find().length,
-  };
-}, ScreenThree);
+// export default createContainer(() => {
+//   Meteor.subscribe('table.fetcch');
+//   return {
+//     items: Meteor.collection('table.fetcch').find(),
+//     count: Meteor.collection('table.fetcch').find().length,
+//   };
+// }, ScreenThree);
 
-//export default ScreenThree;
+export default ScreenThree;
