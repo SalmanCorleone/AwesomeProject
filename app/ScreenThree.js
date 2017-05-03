@@ -106,7 +106,7 @@ class ScreenThree extends React.Component {
 const styles = StyleSheet.create({
 
   title:  {
-    fontSize:15,
+    fontSize:18,
     color: 'white'
   },
 

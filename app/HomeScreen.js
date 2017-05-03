@@ -60,7 +60,7 @@ class HomeScreen extends Component {
             </Button>
           </Left>
           <Body>
-            <Title>প্রথম অধ্যায়</Title>
+            <Text style={styles.title}>প্রথম অধ্যায়</Text>
           </Body>
 
           <Right>
@@ -99,6 +99,12 @@ class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+
+
+  title:  {
+    fontSize:18,
+    color: 'white'
+  },
 
   sub: {
     paddingLeft: 5
