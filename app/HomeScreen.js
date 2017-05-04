@@ -30,22 +30,26 @@ var result=[];
 
 
 class HomeScreen extends Component {
-
-  renderRow(task) {
-   return (
-     <Text>{task.text}</Text>
-   );
- }
-
-  componentWillMount() {
-    Meteor.connect(SERVER_URL);
-  }
   static navigationOptions = {
     title: 'প্রথম অধ্যায়',
     //header: null,
     headerTintColor: 'blue',
 
   };
+
+  componentWillMount() {
+    Meteor.connect(SERVER_URL);
+  }
+  renderRow(task) {
+   return (
+     <Text style={styles.list} button onPress={() => navigate('Two', {name: item})}>{task.text}</Text>
+   );
+ }
+
+
+
+
+
 
   // Initialize the hardcoded data
   constructor(props) {
@@ -90,7 +94,7 @@ class HomeScreen extends Component {
           <View >
           {!tasksReady && <Text></Text>}
 
-          <MeteorListView style={styles.MeteorListView}
+          <MeteorListView
             collection="tasks"
             renderRow={this.renderRow}
             options={{sort: {createdAt: -1}}}
@@ -119,12 +123,6 @@ class HomeScreen extends Component {
 const styles = StyleSheet.create({
 
 
-  MeteorListView: {
-    flex: 1,
-    height: 250,
-    backgroundColor: '#18a1db'
-  },
-
 
   title:  {
     fontSize:18,
@@ -149,10 +147,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#18a1db'
   },
 
-  bigbold: {
+  list: {
     fontWeight: 'bold',
     fontSize: 20,
-    paddingLeft: 5
+    paddingLeft: 20,
+    position: 'relative',
+
+    padding: 15 ,
+
+    borderBottomColor: 'rgb(195, 201, 204)',
+    borderBottomWidth: 1,
   },
   red: {
     color: 'red',
