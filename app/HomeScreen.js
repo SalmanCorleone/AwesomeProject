@@ -18,7 +18,7 @@ import {
 } from 'native-base';
 import {AppRegistry, StyleSheet, ListView, Text, View} from 'react-native';
 import {StackNavigator} from 'react-navigation';
-import Meteor, {createContainer, MeteorListView} from 'react-native-meteor';
+import Meteor, {createContainer, MeteorListView } from 'react-native-meteor';
 
 const SERVER_URL = 'ws://192.168.0.101:3000/websocket';
 const SERVER_URL2= 'ws://107.23.254.57:81/websocket';
@@ -26,13 +26,19 @@ const SERVER_URL2= 'ws://107.23.254.57:81/websocket';
 
 
 var items = ['রাষ্ট্রপতির সচিবালয়', 'প্রধানমন্ত্রীর কার্যালয়', 'শিক্ষা মন্ত্রণালয়'];
-
+var result=[];
 
 
 class HomeScreen extends Component {
 
+  renderRow(task) {
+   return (
+     <Text>{task.text}</Text>
+   );
+ }
+
   componentWillMount() {
-    Meteor.connect(SERVER_URL2);
+    Meteor.connect(SERVER_URL);
   }
   static navigationOptions = {
     title: 'প্রথম অধ্যায়',
@@ -42,9 +48,6 @@ class HomeScreen extends Component {
   // Initialize the hardcoded data
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
 
   }
 
@@ -53,6 +56,8 @@ class HomeScreen extends Component {
   render() {
 
     const {navigate} = this.props.navigation;
+    const { tasksReady } = this.props;
+    //let result= this.state.result;
     return (
       <Container>
         <View style={styles.head}>
@@ -82,6 +87,18 @@ class HomeScreen extends Component {
           <ListItem button onPress={() => navigate('Two', {name: item})}>
             <Text style={styles.bigbold}>{item}</Text>
           </ListItem>}></List>
+
+
+          <View >
+          {!tasksReady && <Text></Text>}
+
+          <MeteorListView
+            collection="tasks"
+            renderRow={this.renderRow}
+            options={{sort: {createdAt: -1}}}
+          />
+
+          </View>
 
 
 
@@ -157,21 +174,30 @@ const styles = StyleSheet.create({
 });
 
 //
-export default createContainer(() => {
-  Meteor.subscribe('first.fetch',1);
-  return {
-    items: Meteor.collection('first.fetch').find(),
-    count: Meteor.collection('first.fetch').find().length,
-  };
-}, HomeScreen);
-
+// export default createContainer(() => {
+//   Meteor.subscribe('first.fetch',1);
+//   return {
+//     items: Meteor.collection('first.fetch').find(),
+//     count: Meteor.collection('first.fetch').find().length,
+//   };
+// }, HomeScreen);
+//
 // export default createContainer(() => {
 //   Meteor.subscribe('tasks');
 //   return {
-//     items: Meteor.collection('tasks').find(),
+//     //HomeScreen.setState({result: Meteor.collection('tasks').find()}),
+//     result: Meteor.collection('tasks').find(),
+//     //items: Meteor.collection('tasks').find(),
 //     count: Meteor.collection('tasks').find().length,
 //   };
 // }, HomeScreen);
+//
 
+export default createContainer( params => {
+  const handle = Meteor.subscribe('tasks');
+  return {
+    tasksReady: handle.ready()
+  };
+}, HomeScreen);
 
 //export default HomeScreen;
