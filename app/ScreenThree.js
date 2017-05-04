@@ -163,8 +163,8 @@ const styles = StyleSheet.create({
 // export default createContainer(() => {
 //   Meteor.subscribe('table.fetcch');
 //   return {
-//     items: Meteor.collection('table.fetcch').find(),
-//     count: Meteor.collection('table.fetcch').find().length,
+//     items: Meteor.collection('table.fetch').find(),
+//     count: Meteor.collection('table.fetch').find().length,
 //   };
 // }, ScreenThree);
 

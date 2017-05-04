@@ -24,6 +24,7 @@ const SERVER_URL = 'ws://192.168.0.101:3000/websocket';
 const SERVER_URL2= 'ws://107.23.254.57:81/websocket';
 
 
+
 var items = ['রাষ্ট্রপতির সচিবালয়', 'প্রধানমন্ত্রীর কার্যালয়', 'শিক্ষা মন্ত্রণালয়'];
 
 
@@ -156,13 +157,13 @@ const styles = StyleSheet.create({
 });
 
 //
-// export default createContainer(() => {
-//   Meteor.subscribe('first.fetcch', 1);
-//   return {
-//     items: Meteor.collection('first.fetcch').find(),
-//     count: Meteor.collection('first.fetcch').find().length,
-//   };
-// }, HomeScreen);
+export default createContainer(() => {
+  Meteor.subscribe('first.fetch',1);
+  return {
+    items: Meteor.collection('first.fetch').find(),
+    count: Meteor.collection('first.fetch').find().length,
+  };
+}, HomeScreen);
 
 // export default createContainer(() => {
 //   Meteor.subscribe('tasks');
@@ -173,4 +174,4 @@ const styles = StyleSheet.create({
 // }, HomeScreen);
 
 
-export default HomeScreen;
+//export default HomeScreen;
