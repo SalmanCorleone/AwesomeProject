@@ -42,7 +42,9 @@ class HomeScreen extends Component {
   }
   static navigationOptions = {
     title: 'প্রথম অধ্যায়',
-    header: null
+    //header: null,
+    headerTintColor: 'blue',
+
   };
 
   // Initialize the hardcoded data
@@ -83,16 +85,12 @@ class HomeScreen extends Component {
 
 
 
-          <List dataArray={items} renderRow={(item) =>
-          <ListItem button onPress={() => navigate('Two', {name: item})}>
-            <Text style={styles.bigbold}>{item}</Text>
-          </ListItem>}></List>
 
 
           <View >
           {!tasksReady && <Text></Text>}
 
-          <MeteorListView
+          <MeteorListView style={styles.MeteorListView}
             collection="tasks"
             renderRow={this.renderRow}
             options={{sort: {createdAt: -1}}}
@@ -119,6 +117,13 @@ class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+
+
+  MeteorListView: {
+    flex: 1,
+    height: 250,
+    backgroundColor: '#18a1db'
+  },
 
 
   title:  {
