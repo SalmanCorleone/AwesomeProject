@@ -30,6 +30,9 @@ var result=[];
 
 
 class HomeScreen extends Component {
+
+
+
   static navigationOptions = {
     title: 'প্রথম অধ্যায়',
     //header: null,
@@ -40,30 +43,30 @@ class HomeScreen extends Component {
   componentWillMount() {
     Meteor.connect(SERVER_URL);
   }
-  renderRow(task) {
-   return (
-     <Text style={styles.list} button onPress={() => navigate('Two', {name: item})}>{task.text}</Text>
-   );
- }
 
 
 
 
 
-
-  // Initialize the hardcoded data
   constructor(props) {
     super(props);
 
   }
 
-
+  renderRow(task) {
+   return (
+     <Text style={styles.list} button onPress={() => navigate('Two', {name: task.text})}>{task.text}</Text>
+   );
+  }
 
   render() {
 
     const {navigate} = this.props.navigation;
     const { tasksReady } = this.props;
     //let result= this.state.result;
+
+
+
     return (
       <Container>
         <View style={styles.head}>
