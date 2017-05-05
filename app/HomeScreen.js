@@ -55,7 +55,9 @@ class HomeScreen extends Component {
 
   renderRow(task) {
    return (
-     <Text style={styles.list} button onPress={() => navigate('Two', {name: task.text})}>{task.text}</Text>
+     <ListItem>
+     <Text button onPress={() => navigate('Two', {name: task.text})}>{task.text}</Text>
+     </ListItem>
    );
   }
 
@@ -91,6 +93,10 @@ class HomeScreen extends Component {
         <Content>
 
 
+        <List dataArray={items} renderRow={(item) =>
+        <ListItem button onPress={() => navigate('Two', {name: item})}>
+          <Text style={styles.bigbold}>{item}</Text>
+        </ListItem>}></List>
 
 
 
@@ -208,8 +214,17 @@ const styles = StyleSheet.create({
 export default createContainer( params => {
   const handle = Meteor.subscribe('tasks');
   return {
-    tasksReady: handle.ready()
+    tasksReady: handle.ready(),
+    count: Meteor.collection('tasks').find().length,
   };
 }, HomeScreen);
+
+// export default createContainer( params => {
+//   const handle = Meteor.subscribe('first.fetch',1);
+//   return {
+//     tasksReady: handle.ready(),
+//     count: Meteor.collection('first.fetch').find().length,
+//   };
+// }, HomeScreen);
 
 //export default HomeScreen;
