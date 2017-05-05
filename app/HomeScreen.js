@@ -54,9 +54,10 @@ class HomeScreen extends Component {
   }
 
   renderRow(task) {
+  //const {navigate} = this.props.navigation;
    return (
      <ListItem>
-     <Text button onPress={() => navigate('Two', {name: task.text})}>{task.text}</Text>
+     <Text style={styles.list} button onPress={() => navigate('Two', {name: task.text})}>{task.text}</Text>
      </ListItem>
    );
   }
@@ -95,7 +96,7 @@ class HomeScreen extends Component {
 
         <List dataArray={items} renderRow={(item) =>
         <ListItem button onPress={() => navigate('Two', {name: item})}>
-          <Text style={styles.bigbold}>{item}</Text>
+          <Text style={styles.list}>{item}</Text>
         </ListItem>}></List>
 
 
@@ -158,14 +159,11 @@ const styles = StyleSheet.create({
 
   list: {
     fontWeight: 'bold',
-    fontSize: 20,
-    paddingLeft: 20,
+    fontSize: 15,
+    paddingLeft: 10,
     position: 'relative',
 
-    padding: 15 ,
 
-    borderBottomColor: 'rgb(195, 201, 204)',
-    borderBottomWidth: 1,
   },
   red: {
     color: 'red',
