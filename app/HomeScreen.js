@@ -56,8 +56,8 @@ class HomeScreen extends Component {
   renderRow(task) {
   //const {navigate} = this.props.navigation;
    return (
-     <ListItem>
-     <Text style={styles.list} button onPress={() => navigate('Two', {name: task.text})}>{task.text}</Text>
+     <ListItem button onPress={() => navigate('Two', {name: task.text})}>
+     <Text style={styles.list} >{task.text}</Text>
      </ListItem>
    );
   }
