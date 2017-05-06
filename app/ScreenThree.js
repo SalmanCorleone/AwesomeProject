@@ -47,7 +47,7 @@ class ScreenThree extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Text style={styles.title}>{params.name}</Text>
+            <Text style={styles.title}>{params.position}</Text>
           </Body>
 
           <Right></Right>
@@ -63,9 +63,9 @@ class ScreenThree extends React.Component {
               color: 'white',
               paddingTop: 50
             }}>
-              {params.name}
+              {params.position}
             </Text>
-            <Text style={styles.boxText}>আব্দুল হামিদ খান
+            <Text style={styles.boxText}> {params.name}
             </Text>
           </View>
 </Content>

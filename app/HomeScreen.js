@@ -104,7 +104,7 @@ class HomeScreen extends Component {
           <MeteorListView
             collection="tasks"
             renderRow={(task)=> {
-            //const {navigate} = this.props.navigation;
+            
              return (
                <ListItem button onPress={() => navigate('Two', {name: task.text})}>
                <Text style={styles.list} >{task.text}</Text>
@@ -125,7 +125,7 @@ class HomeScreen extends Component {
         </Content>
 
         <Text style={styles.bigbold}>
-          Item Count: {this.props.count}
+          Debug: {this.props.count}
         </Text>
 
       </Container>
