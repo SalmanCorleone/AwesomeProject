@@ -53,14 +53,14 @@ class HomeScreen extends Component {
 
   }
 
-  renderRow(task) {
-  //const {navigate} = this.props.navigation;
-   return (
-     <ListItem button onPress={() => navigate('Two', {name: task.text})}>
-     <Text style={styles.list} >{task.text}</Text>
-     </ListItem>
-   );
-  }
+  // renderRow(task) {
+  // //const {navigate} = this.props.navigation;
+  //  return (
+  //    <ListItem button onPress={() => navigate('Two', {name: task.text})}>
+  //    <Text style={styles.list} >{task.text}</Text>
+  //    </ListItem>
+  //  );
+  // }
 
   render() {
 
@@ -106,7 +106,14 @@ class HomeScreen extends Component {
 
           <MeteorListView
             collection="tasks"
-            renderRow={this.renderRow}
+            renderRow={(task)=> {
+            //const {navigate} = this.props.navigation;
+             return (
+               <ListItem button onPress={() => navigate('Two', {name: task.text})}>
+               <Text style={styles.list} >{task.text}</Text>
+               </ListItem>
+             );
+            }}
             options={{sort: {createdAt: -1}}}
           />
 
