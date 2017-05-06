@@ -39,8 +39,9 @@ class ScreenTwo extends React.Component {
     Meteor.connect(SERVER_URL);
   }
   static navigationOptions = {
-    title: '{params.name}',
+    title: 'Dummy',
     header: null
+
   };
   render() {
     const {navigate} = this.props.navigation;
@@ -51,7 +52,7 @@ class ScreenTwo extends React.Component {
 
           <Left>
             <Button transparent onPress={() => navigate('Home')}>
-              <Thumbnail square source={require('../img/back.png')}/>
+              <Thumbnail square source={require('../img/menu.png')}/>
             </Button>
           </Left>
           <Body>

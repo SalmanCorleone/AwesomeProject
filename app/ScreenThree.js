@@ -43,7 +43,7 @@ class ScreenThree extends React.Component {
 
           <Left>
             <Button transparent onPress={() => navigate('Home')}>
-              <Thumbnail square source={require('../img/back.png')}/>
+              <Thumbnail square source={require('../img/menu.png')}/>
             </Button>
           </Left>
           <Body>
@@ -74,7 +74,7 @@ class ScreenThree extends React.Component {
 
               <View>
                 <Text style={styles.sub}>
-                  ফোন
+                  অফিস
                 </Text>
                 <Text style={styles.bigbold}>{item}</Text>
 
