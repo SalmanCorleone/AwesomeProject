@@ -85,7 +85,7 @@ class ScreenThree extends React.Component {
               </View>
 
               <Right>
-            <Button  transparent style={{height:50, width: 60}}  onPress={() => navigate('Home')}>
+            <Button  transparent style={{height:50, width: 60}} >
               <Thumbnail square source={require('../img/call.png')} />
 
 </Button>

@@ -18,35 +18,25 @@ import {
 } from 'native-base';
 import {AppRegistry, StyleSheet, ListView, Text, View} from 'react-native';
 import {StackNavigator} from 'react-navigation';
-import Meteor, {createContainer, MeteorListView } from 'react-native-meteor';
+import Meteor, {createContainer, MeteorListView} from 'react-native-meteor';
 
 const SERVER_URL = 'ws://192.168.0.101:3000/websocket';
-const SERVER_URL2= 'ws://107.23.254.57:81/websocket';
-
-
+const SERVER_URL2 = 'ws://107.23.254.57:81/websocket';
 
 var items = ['রাষ্ট্রপতির সচিবালয়', 'প্রধানমন্ত্রীর কার্যালয়', 'শিক্ষা মন্ত্রণালয়'];
-var result=[];
-
+var result = [];
 
 class HomeScreen extends Component {
-
-
 
   static navigationOptions = {
     title: 'প্রথম অধ্যায়',
     //header: null,
-    headerTintColor: 'blue',
-
+    headerTintColor: 'blue'
   };
 
   componentWillMount() {
     Meteor.connect(SERVER_URL);
   }
-
-
-
-
 
   constructor(props) {
     super(props);
@@ -65,10 +55,8 @@ class HomeScreen extends Component {
   render() {
 
     const {navigate} = this.props.navigation;
-    const { tasksReady } = this.props;
+    const {tasksReady} = this.props;
     //let result= this.state.result;
-
-
 
     return (
       <Container>
@@ -93,34 +81,22 @@ class HomeScreen extends Component {
 
         <Content>
 
-
-
-
-
-
           <View >
-          {!tasksReady && <Text></Text>}
+            {!tasksReady && <Text></Text>}
 
-          <MeteorListView
-            collection="tasks"
-            renderRow={(task)=> {
-            
-             return (
-               <ListItem button onPress={() => navigate('Two', {name: task.text})}>
-               <Text style={styles.list} >{task.text}</Text>
-               </ListItem>
-             );
-            }}
-            options={{sort: {createdAt: -1}}}
-          />
+            <MeteorListView collection="tasks" renderRow={(task) => {
+              return (
+                <ListItem button onPress={() => navigate('Two', {name: task.text})}>
+                  <Text style={styles.list}>{task.text}</Text>
+                </ListItem>
+              );
+            }} options={{
+              sort: {
+                createdAt: -1
+              }
+            }}/>
 
           </View>
-
-
-
-
-
-
 
         </Content>
 
@@ -136,10 +112,8 @@ class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
 
-
-
-  title:  {
-    fontSize:18,
+  title: {
+    fontSize: 18,
     color: 'white'
   },
 
@@ -165,9 +139,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
     paddingLeft: 10,
-    position: 'relative',
-
-
+    position: 'relative'
   },
   red: {
     color: 'red',
@@ -213,12 +185,9 @@ const styles = StyleSheet.create({
 // }, HomeScreen);
 //
 
-export default createContainer( params => {
+export default createContainer(params => {
   const handle = Meteor.subscribe('tasks');
-  return {
-    tasksReady: handle.ready(),
-    count: Meteor.collection('tasks').find().length,
-  };
+  return {tasksReady: handle.ready(), count: Meteor.collection('tasks').find().length};
 }, HomeScreen);
 
 // export default createContainer( params => {

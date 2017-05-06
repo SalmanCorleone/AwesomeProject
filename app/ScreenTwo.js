@@ -90,26 +90,15 @@ const styles = StyleSheet.create({
 
     title:  {
       fontSize:18,
-      color: 'white'
+      color: 'white',
+
     },
 
     sub: {
       paddingLeft: 10
     },
 
-    boxText: {
-      fontSize: 40,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      padding: 20,
-      color: 'white'
-    },
 
-    blueBox: {
-      flex: 1,
-      height: 250,
-      backgroundColor: '#18a1db'
-    },
 
     list: {
       fontWeight: 'bold',
@@ -119,28 +108,17 @@ const styles = StyleSheet.create({
 
 
     },
-    red: {
-      color: 'red',
-      fontSize: 30,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      paddingTop: 40
-    },
 
     head: {
       backgroundColor: '#18a1db',
       height: 70,
       flexDirection: 'row',
       paddingLeft: 0,
-      paddingRight: 0
-    },
-    foot: {
-      color: 'white'
+      paddingRight: 0,
+      paddingTop: 5,
+      paddingBottom: 5,
     },
 
-    btn: {
-      padding: 0
-    }
   });
 
 // export default createContainer(() => {
