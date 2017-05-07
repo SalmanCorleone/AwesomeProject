@@ -81,6 +81,13 @@ class HomeScreen extends Component {
 
         <Content>
 
+        <List dataArray={items} renderRow={(item) =>
+        <ListItem button onPress={() => navigate('Two', {name: item})}>
+          <Text style={styles.list}>{item}</Text>
+        </ListItem>}></List>
+
+
+
           <View >
             {!tasksReady && <Text></Text>}
 

@@ -24,7 +24,7 @@ var items = ['956-9151', '696-5680']
 
 
 const SERVER_URL = 'ws://192.168.0.101:3000/websocket';
-const SERVER_URL2= 'http://107.23.254.57:81/websocket';
+const SERVER_URL2= 'ws://107.23.254.57:81/websocket';
 
 class ScreenThree extends React.Component {
   componentWillMount() {
